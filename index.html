@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zhubni bez extrémních diet a počítání každé kalorie. Mgr. Martin Teleki - Pohodlné hubnutí. Jídelníčky na míru a individuální coaching.">
+  <title>Pohodlné hubnutí | Mgr. Martin Teleki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">@pohodlnehubnuti</a>
+      <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#produkty">Služby</a>
+        <a href="#vsechny-produkty">Produkty</a>
+        <a href="#faq">FAQ</a>
+        <a href="#o-mne">O mně</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="nav-cta" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Sleduj na IG
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-label">Mgr. Martin Teleki</p>
+          <h1 class="hero-title">
+            Zhubni bez extrémních diet<br>
+            a počítání každé kalorie.<br>
+            <span class="hero-accent">Pohodlně</span>
+          </h1>
+          <p class="hero-desc">
+            Individuální přístup k výživě bez zbytečných omezení. 
+            Nauč se jíst tak, aby ti to vyhovovalo – a přitom šlo dolů.
+          </p>
+          <div class="hero-social-proof">
+            <div class="hero-stars" aria-hidden="true">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <p class="hero-clients">Přes 1 000 spokojených klientů</p>
+          </div>
+          <div class="hero-ctas">
+            <a href="#jidelnicek" class="btn btn-primary">Chci jídelníček</a>
+            <a href="#coaching" class="btn btn-secondary">Chci individuální spolupráci</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-frame">
+            <img src="img/herobauch.jpeg" alt="Mgr. Martin Teleki - Pohodlné hubnutí" class="hero-img">
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="products" id="produkty">
+      <div class="container">
+        <h2 class="section-title">Co ti můžu nabídnout</h2>
+        <div class="products-grid">
+          <article class="product-card product-entry" id="jidelnicek">
+            <span class="product-badge">Vstupní produkt</span>
+            <h3>Jídelníčky na míru</h3>
+            <p>Personalizovaný jídelníček šitý na míru tvému životnímu stylu, preferencím a cílům. Žádné univerzální řešení – jen to, co ti bude skutečně vyhovovat.</p>
+            <ul class="product-features">
+              <li>Individuální analýza</li>
+              <li>Jídelníček na míru</li>
+              <li>Reálné recepty</li>
+              <li>Flexibilní přístup</li>
+            </ul>
+            <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="btn btn-primary btn-block">Chci jídelníček</a>
+          </article>
+          <article class="product-card product-premium" id="coaching">
+            <span class="product-badge product-badge-premium">Prémiový produkt</span>
+            <h3>Individuální coaching</h3>
+            <p>Komplexní spolupráce na cestě k trvalé změně. Nejen co jíst, ale i jak přemýšlet o jídle a jak si vytvořit zdravé návyky, které vydrží.</p>
+            <ul class="product-features">
+              <li>1:1 individuální spolupráce</li>
+              <li>Průběžná podpora</li>
+              <li>Práce s mindsetem</li>
+              <li>Dlouhodobé výsledky</li>
+            </ul>
+            <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Chci individuální spolupráci</a>
+          </article>
+        </div>
+
+        <div class="product-catalog" id="vsechny-produkty">
+          <h2 class="section-title">Všechny produkty</h2>
+          <div class="catalog-filter" role="tablist" aria-label="Filtrovat produkty">
+            <button type="button" class="filter-btn active" data-filter="vse" role="tab" aria-selected="true">Vše</button>
+            <button type="button" class="filter-btn" data-filter="jidelnicky" role="tab" aria-selected="false">Jídelníčky</button>
+            <button type="button" class="filter-btn" data-filter="recepty" role="tab" aria-selected="false">Recepty & kuchařky</button>
+            <button type="button" class="filter-btn" data-filter="trenink" role="tab" aria-selected="false">Trénink</button>
+          </div>
+          <div class="catalog-list">
+            <article class="catalog-item" data-category="jidelnicky">
+              <div class="catalog-item-thumb">
+                <img src="img/products/jidelnicek.webp" alt="Jídelníček na míru XXXL">
+              </div>
+              <div class="catalog-item-content">
+                <h3>Jídelníček na míru XXXL</h3>
+                <p class="catalog-meta">150 stran – recepty, tipy a podpora – bez zákazů</p>
+                <p class="catalog-desc">Individuální plán podle tvých cílů + 150 stran receptů, tipů a návodů. Jasná makra, jednoduchý systém a moje podpora po celou dobu.</p>
+                <div class="catalog-price">
+                  <span class="price-current">2 499 Kč</span>
+                  <span class="price-original">z původních 7 000 Kč</span>
+                </div>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/j-deln-ek-na-m-ru-cca-50-stran-des-tky-variant-j-del-s-moj-podporou-kdykoliv-si-nebude-jist--702qp0qyx" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item" data-category="jidelnicky">
+              <div class="catalog-item-thumb">
+                <img src="img/products/jidelnicek.webp" alt="Jídelníček na míru s mojí podporou">
+              </div>
+              <div class="catalog-item-content">
+                <h3>Jídelníček na míru s mojí podporou</h3>
+                <p class="catalog-meta">cca 50 stran • 700+ spokojených klientů</p>
+                <p class="catalog-desc">Individuálně sestavený plán podle tvých cílů, chutí a denního režimu. Podpora, kdykoliv si nebudeš jist/á.</p>
+                <div class="catalog-price">
+                  <span class="price-current">1 699 Kč</span>
+                  <span class="price-original">z původních 3 000 Kč</span>
+                </div>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/j-deln-ek-na-m-ru-cca-50-stran-des-tky-variant-j-del-s-moj-podporou-kdykoliv-si-nebude-jist-p6a8u0rmx" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item" data-category="recepty">
+              <div class="catalog-item-thumb">
+                <img src="img/products/kucharka.webp" alt="Pohodlná kuchařka">
+              </div>
+              <div class="catalog-item-content">
+                <h3>Pohodlná kuchařka</h3>
+                <p class="catalog-meta">100 rychlých a jednoduchých receptů</p>
+                <p class="catalog-desc">Vař chutně, bez stresu a z běžně dostupných surovin. Recepty, které ti ušetří čas i peníze.</p>
+                <div class="catalog-price">
+                  <span class="price-current">399 Kč</span>
+                  <span class="price-original">z původních 999 Kč</span>
+                </div>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/z-skej-pohodlnou-kucha-ku-100-rychl-ch-a-jednoduch-ch-recept-fhmit52wv" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item" data-category="recepty">
+              <div class="catalog-item-thumb">
+                <img src="img/products/vyvazenevecere.webp" alt="28 vyvážených večeří">
+              </div>
+              <div class="catalog-item-content">
+                <h3>28 vyvážených večeří</h3>
+                <p class="catalog-meta">Uvařeno do 30 minut – zhubneš bez hladu</p>
+                <p class="catalog-desc">Rychlé, jednoduché a chutné večeře pro každodenní pohodu, lepší postavu a klid v hlavě. Bez extrémů, bez diet, bez složitostí.</p>
+                <div class="catalog-price">
+                  <span class="price-current">199 Kč</span>
+                  <span class="price-original">z původních 399 Kč</span>
+                </div>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/28-vyv-en-ch-ve-e-kter-ti-usnadn-hubnut-i-b-n-dny-bga3mbf08" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item" data-category="trenink">
+              <div class="catalog-item-thumb">
+                <img src="img/products/treninkovyplan.png" alt="Tréninkový plán do fitka">
+              </div>
+              <div class="catalog-item-content">
+                <h3>Tréninkový plán do fitka</h3>
+                <p class="catalog-meta">Pro pevné tělo, sílu a rychlé výsledky</p>
+                <p class="catalog-desc">5 perfektně sestavených variant tréninků – split, full-body i upper/lower. Přehledná struktura, nulové přetížení. Výsledky viditelné už za 4–6 týdnů.</p>
+                <div class="catalog-price">
+                  <span class="price-current">499 Kč</span>
+                  <span class="price-original">z původních 999 Kč</span>
+                </div>
+                <a href="https://form.simpleshop.cz/xKYV2/" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item" data-category="trenink">
+              <div class="catalog-item-thumb">
+                <img src="img/products/technikacviku.png" alt="Technika cviků do fitka">
+              </div>
+              <div class="catalog-item-content">
+                <h3>Technika cviků do fitka</h3>
+                <p class="catalog-meta">Nikdy není pozdě začít makat</p>
+                <p class="catalog-desc">E-book s detailním přehledem desítek cviků – 120 stran s obrázky správného provedení, aktivovanou svalovou partií a tipy na časté chyby.</p>
+                <div class="catalog-price">
+                  <span class="price-current">399 Kč</span>
+                  <span class="price-original">z původních 699 Kč</span>
+                </div>
+                <a href="https://form.simpleshop.cz/5Qqll/" target="_blank" rel="noopener" class="btn btn-primary">Objednat</a>
+              </div>
+            </article>
+
+            <article class="catalog-item catalog-item-free" data-category="recepty">
+              <div class="catalog-item-thumb">
+                <img src="img/products/kaprrecept.webp" alt="6 TOP kapřích receptů">
+              </div>
+              <div class="catalog-item-content">
+                <span class="catalog-badge-free">Zdarma</span>
+                <h3>6 TOP kapřích receptů</h3>
+                <p class="catalog-desc">Mých 6 nejoblíbenějších kapřích receptů na email v PDF zdarma.</p>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/z-skej-6-top-recept-na-kapra-do-emailu-v-pdf-zdarma-c2d7prfwi" target="_blank" rel="noopener" class="btn btn-secondary">Získat zdarma</a>
+              </div>
+            </article>
+
+            <article class="catalog-item catalog-item-free" data-category="recepty">
+              <div class="catalog-item-thumb">
+                <img src="img/products/pizza.webp" alt="Pizza plná bílkovin">
+              </div>
+              <div class="catalog-item-content">
+                <span class="catalog-badge-free">Zdarma</span>
+                <h3>Pizza plná bílkovin</h3>
+                <p class="catalog-desc">Získej recept na pizzu plnou bílkovin v PDF, který si můžeš vytisknout a založit.</p>
+                <a href="https://moje.flixy.cz/pohodlnehubnuti/p/z-skej-recept-na-pizzu-v-pdf-zdarma-05wew32c1" target="_blank" rel="noopener" class="btn btn-secondary">Získat recept</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="o-mne">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <h2 class="section-title">O mně</h2>
+            <p class="about-text">
+              Jsem Martin a věřím, že hubnutí nemusí být utrpení. Žádné hladovění, žádné počítání každé kalorie, žádné vyřazování oblíbených jídel. 
+            </p>
+            <p class="about-text">
+              Pomáhám lidem najít <strong>pohodlný</strong> způsob, jak se dostat do formy – takový, který zvládnou dodržovat dlouhodobě. Protože jediná dieta, která funguje, je ta, kterou dokážeš žít.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">@pohodlnehubnuti</span>
+              <span class="stat-label">Hlavní kanál</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">@pohodlnerecepty</span>
+              <span class="stat-label">Recepty se snoubenkou</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social" id="kontakt">
+      <div class="container">
+        <h2 class="section-title">Kde mě najdeš</h2>
+        <p class="social-intro">Hlavně na Instagramu – tam sdílím tipy, recepty a inspiraci pro pohodlné hubnutí.</p>
+        <div class="social-grid">
+          <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="social-card social-main">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </span>
+            <span class="social-name">@pohodlnehubnuti</span>
+            <span class="social-label">Hlavní kanál</span>
+          </a>
+          <a href="https://www.instagram.com/pohodlnerecepty/" target="_blank" rel="noopener" class="social-card">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </span>
+            <span class="social-name">@pohodlnerecepty</span>
+            <span class="social-label">Recepty se snoubenkou</span>
+          </a>
+          <a href="https://www.instagram.com/pohodlnakuchyn.cz/" target="_blank" rel="noopener" class="social-card">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </span>
+            <span class="social-name">@pohodlnakuchyn.cz</span>
+            <span class="social-label">Pohodlná kuchyň</span>
+          </a>
+          <a href="https://www.youtube.com/@pohodlnehubnuti" target="_blank" rel="noopener" class="social-card">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </span>
+            <span class="social-name">YouTube</span>
+          </a>
+          <a href="https://www.tiktok.com/@pohodlnehubnuti" target="_blank" rel="noopener" class="social-card">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </span>
+            <span class="social-name">TikTok</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61577684428348" target="_blank" rel="noopener" class="social-card">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </span>
+            <span class="social-name">Facebook</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Časté otázky</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">Je jídelníček opravdu na míru?</summary>
+            <div class="faq-answer">
+              <p>Ano. Každý jídelníček sestavuji individuálně podle vašich údajů, cíle, pohybu, práce a životního stylu.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Budu mít hlad?</summary>
+            <div class="faq-answer">
+              <p>Pravděpodobně ne. Jídelníček je postavený na dostatečných porcích, bílkovinách a vyvážených makrech tak, aby byl dlouhodobě udržitelný. Pokud byste měl/a hlad, napište mi. Každý je individuální.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Musím vážit každé jídlo?</summary>
+            <div class="faq-answer">
+              <p>Je lepší si vše vážit, než to budeš mít v oku. Časem se můžeš naučit intuitivně jíst.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Je jídelníček vhodný i při práci na směny nebo s dětmi?</summary>
+            <div class="faq-answer">
+              <p>Ano. Právě na běžný život je celý systém stavěný – minimum stresu, maximum jednoduchosti.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Musím sportovat, aby jídelníček fungoval?</summary>
+            <div class="faq-answer">
+              <p>Ne. Jídelníček funguje i bez sportu. Pohyb je bonus, ne podmínka.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Co když mám zdravotní omezení?</summary>
+            <div class="faq-answer">
+              <p>Stačí mi vše napsat předem a jídelníček tomu přizpůsobím v rámci možností.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Jak rychle uvidím výsledky?</summary>
+            <div class="faq-answer">
+              <p>Je to individuální, ale většina lidí cítí rozdíl už během prvních týdnů – hlavně víc energie a klid v hlavě.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Můžu se během spolupráce na něco zeptat?</summary>
+            <div class="faq-answer">
+              <p>Ano. Kdykoliv mi můžete napsat nebo se domluvit na hovoru.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Je jídelníček vhodný i pro muže?</summary>
+            <div class="faq-answer">
+              <p>Ano. Makra i porce se nastavují individuálně, není to „ženský“ ani „mužský“ plán.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Co když mi něco nebude vyhovovat?</summary>
+            <div class="faq-answer">
+              <p>Ozvete se a jídelníček společně upravíme. Cílem je, aby vám opravdu seděl.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Zaplatil/a jsem jídelníček, co teď?</summary>
+            <div class="faq-answer">
+              <p>Napíšu ti email z adresy <a href="mailto:pohodlnehubnuti@seznam.cz">pohodlnehubnuti@seznam.cz</a>. Požádám tě o informace, které budu od tebe potřebovat. Zkontroluj si spam nebo hromadné zprávy. Email odesílám co nejdříve, jak mi přijde platba na účet v pracovních dnech.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copyright">© 2026 Pohodlné hubnutí | Mgr. Martin Teleki</p>
+      <div class="footer-info">
+        <span>IČO: 23790075</span>
+        <span>Č. ú.: Placeholder</span>
+        <span>IBAN: Placeholder</span>
+      </div>
+      <p class="footer-credit">
+        Web vytvořil <a href="https://zdenekpodany.cz" target="_blank" rel="noopener">Zdeněk Podaný</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
