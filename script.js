@@ -7,17 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
 
+  const closeMenu = () => {
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navLinks?.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  };
+
+  const openMenu = () => {
+    navToggle?.setAttribute('aria-expanded', 'true');
+    navLinks?.classList.add('open');
+    document.body.classList.add('menu-open');
+  };
+
   navToggle?.addEventListener('click', () => {
     const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !isOpen);
-    navLinks?.classList.toggle('open', !isOpen);
+    if (isOpen) closeMenu();
+    else openMenu();
   });
 
+  document.querySelector('.nav-close')?.addEventListener('click', closeMenu);
+  document.querySelector('.nav-backdrop')?.addEventListener('click', closeMenu);
+
   navLinks?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navToggle?.setAttribute('aria-expanded', 'false');
-      navLinks?.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
   });
 
   // Header scroll effect
