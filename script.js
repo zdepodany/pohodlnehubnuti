@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal animation
   const revealElements = document.querySelectorAll(
-    '.product-card, .catalog-item, .about-content, .about-stats, .social-intro, .social-card, .faq-item, .transformations-slider, .contact-form-fields'
+    '.product-card, .catalog-item, .about-content, .about-image, .social-intro, .social-card, .faq-item, .transformations-slider, .contact-form-fields'
   );
 
   const observerOptions = {
