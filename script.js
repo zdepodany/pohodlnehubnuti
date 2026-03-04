@@ -3,35 +3,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile menu toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  const closeMenu = () => {
-    navToggle?.setAttribute('aria-expanded', 'false');
-    navLinks?.classList.remove('open');
-    document.body.classList.remove('menu-open');
-  };
-
-  const openMenu = () => {
-    navToggle?.setAttribute('aria-expanded', 'true');
-    navLinks?.classList.add('open');
-    document.body.classList.add('menu-open');
-  };
-
-  navToggle?.addEventListener('click', () => {
-    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    if (isOpen) closeMenu();
-    else openMenu();
-  });
-
-  document.querySelector('.nav-close')?.addEventListener('click', closeMenu);
-  document.querySelector('.nav-backdrop')?.addEventListener('click', closeMenu);
-
-  navLinks?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
   // Header scroll effect
   const header = document.querySelector('.header');
   
@@ -41,14 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       header?.classList.remove('scrolled');
     }
+
+    const backToTop = document.getElementById('back-to-top');
+    if (window.scrollY > 0) {
+      backToTop?.classList.add('visible');
+    } else {
+      backToTop?.classList.remove('visible');
+    }
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Initial check
 
+  // Back to top
+  document.getElementById('back-to-top')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   // Scroll reveal animation
   const revealElements = document.querySelectorAll(
-    '.product-card, .catalog-item, .about-content, .about-stats, .social-intro, .social-card, .faq-item'
+    '.product-card, .catalog-item, .about-content, .about-stats, .social-intro, .social-card, .faq-item, .transformations-slider, .contact-form-fields'
   );
 
   const observerOptions = {
@@ -93,6 +77,47 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Contact form - prevent submit (form not connected)
+  document.querySelector('.contact-form-fields')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+
+  // Transformations slider
+  const track = document.querySelector('.transformations-track');
+  const cards = document.querySelectorAll('.transformations-track .transformation-card');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+  const dots = document.querySelectorAll('.slider-dot');
+  const total = cards.length;
+
+  let currentIndex = 0;
+
+  const goTo = (index) => {
+    currentIndex = Math.max(0, Math.min(index, total - 1));
+    if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+      dot.setAttribute('aria-selected', i === currentIndex);
+    });
+  };
+
+  prevBtn?.addEventListener('click', () => goTo(currentIndex - 1));
+  nextBtn?.addEventListener('click', () => goTo(currentIndex + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const wrap = document.querySelector('.transformations-track-wrap');
+  wrap?.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  wrap?.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+  }, { passive: true });
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
