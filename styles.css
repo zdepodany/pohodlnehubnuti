@@ -190,10 +190,25 @@ body {
 }
 
 .hero-accent {
-  background: linear-gradient(135deg, var(--color-pink), var(--color-apricot));
+  display: inline-block;
+  background: linear-gradient(
+    110deg,
+    var(--color-pink) 0%,
+    var(--color-apricot) 35%,
+    rgba(255, 248, 231, 0.6) 50%,
+    var(--color-apricot) 65%,
+    var(--color-pink) 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: hero-shimmer 6s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
 }
 
 .hero-desc {
@@ -366,29 +381,106 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  align-items: stretch;
 }
 
-.product-card {
-  background: var(--color-white);
-  padding: 2.5rem;
+/* ===== Vstupní produkt (Jídelníček) – lehký, přístupný ===== */
+.product-entry {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 231, 0.6) 100%);
+  padding: 2rem 2.25rem;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
+  border: 2px solid rgba(255, 225, 181, 0.6);
+  box-shadow: 0 2px 16px rgba(45, 42, 38, 0.04);
 }
 
-.product-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-peach), var(--color-pink));
-  opacity: 0;
+.product-badge-entry {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 225, 181, 0.7);
+  color: var(--color-dark-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 215, 166, 0.5);
 }
 
-.product-premium::before {
-  background: linear-gradient(90deg, var(--color-pink), var(--color-apricot));
+.product-entry-desc {
+  color: var(--color-dark-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+/* ===== Prémiový produkt (Coaching) – výrazný, luxusní ===== */
+.product-premium {
+  background: linear-gradient(145deg, rgba(255, 248, 231, 0.9) 0%, rgba(255, 204, 220, 0.25) 50%, rgba(255, 215, 166, 0.2) 100%);
+  padding: 2.75rem 2.5rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 204, 220, 0.5);
+  box-shadow: 0 8px 40px rgba(45, 42, 38, 0.12),
+              0 4px 24px rgba(255, 204, 220, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.product-badge-premium {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, var(--color-pink), var(--color-apricot));
+  color: var(--color-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 12px rgba(255, 204, 220, 0.4);
+}
+
+.product-premium-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-dark-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.product-features-premium li::before {
+  color: var(--color-pink);
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #3d3834 100%);
+  color: var(--color-cream);
+  box-shadow: 0 4px 20px rgba(45, 42, 38, 0.25);
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(45, 42, 38, 0.3);
+}
+
+/* Společné styly pro product-card (fallback) */
+.product-card {
+  position: relative;
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.product-card p:not(.product-entry-desc) {
+  color: var(--color-dark-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
 }
 
 .product-badge {
@@ -402,10 +494,6 @@ body {
   letter-spacing: 0.1em;
   border-radius: var(--radius-full);
   margin-bottom: 1.25rem;
-}
-
-.product-badge-premium {
-  background: linear-gradient(135deg, var(--color-pink), var(--color-apricot));
 }
 
 .product-card .btn:hover {
@@ -458,6 +546,11 @@ body {
 @media (max-width: 768px) {
   .products-grid {
     grid-template-columns: 1fr;
+  }
+
+  .product-entry,
+  .product-premium {
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -520,10 +613,16 @@ body {
 
 .catalog-item {
   display: flex;
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 231, 0.4) 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 20px rgba(45, 42, 38, 0.06);
   overflow: hidden;
+  border: 1px solid rgba(255, 225, 181, 0.4);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.catalog-item:hover {
+  box-shadow: 0 6px 32px rgba(45, 42, 38, 0.1);
 }
 
 .catalog-item-thumb {
@@ -554,7 +653,7 @@ body {
 
 .catalog-item-content {
   flex: 1;
-  padding: 1.75rem 2rem;
+  padding: 2rem 2rem;
   min-width: 0;
 }
 
@@ -562,6 +661,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
 
 .catalog-meta {
@@ -964,8 +1064,18 @@ body {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-main {
+  grid-column: 1 / 3;
+}
+
+.social-primary {
+  grid-column: 3 / 5;
 }
 
 .social-card {
@@ -1005,31 +1115,44 @@ body {
   opacity: 1;
 }
 
-.social-main {
-  grid-column: span 1;
-  background: linear-gradient(135deg, rgba(255, 225, 181, 0.4), rgba(255, 215, 166, 0.3));
-  border: 2px solid rgba(255, 204, 220, 0.5);
+/* Hlavní dva kanály – výrazná horní řada */
+.social-main,
+.social-primary {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(145deg, rgba(255, 248, 231, 0.9) 0%, rgba(255, 225, 181, 0.5) 50%, rgba(255, 204, 220, 0.3) 100%);
+  border: 2px solid rgba(255, 204, 220, 0.6);
+  box-shadow: 0 4px 24px rgba(45, 42, 38, 0.08),
+              0 2px 12px rgba(255, 204, 220, 0.15);
+}
+
+.social-main .social-icon,
+.social-primary .social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.social-main .social-name,
+.social-primary .social-name {
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
 .social-main::before {
   background: linear-gradient(135deg, rgba(255, 225, 181, 0.5), rgba(255, 204, 220, 0.4));
 }
 
-.social-main:hover::before {
+.social-main:hover::before,
+.social-primary:hover::before {
   opacity: 1;
-}
-
-.social-primary {
-  background: linear-gradient(135deg, rgba(255, 225, 181, 0.4), rgba(255, 215, 166, 0.3));
-  border: 2px solid rgba(255, 204, 220, 0.5);
 }
 
 .social-primary::before {
   background: linear-gradient(135deg, rgba(255, 225, 181, 0.5), rgba(255, 204, 220, 0.4));
 }
 
-.social-primary:hover::before {
-  opacity: 1;
+/* Sekundární kanály – kompaktní spodní řada */
+.social-secondary {
+  grid-column: span 1;
 }
 
 .social-icon {
@@ -1063,9 +1186,8 @@ body {
   }
 
   .social-grid {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .social-main {
@@ -1076,54 +1198,40 @@ body {
     grid-column: 2;
   }
 
-  .social-secondary {
-    grid-column: span 1;
-  }
-
   .social-main,
   .social-primary {
-    padding: 1.25rem 1rem;
-    gap: 0.4rem;
+    padding: 2rem 1.25rem;
   }
 
   .social-main .social-icon,
   .social-primary .social-icon {
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
   }
 
   .social-main .social-name,
   .social-primary .social-name {
-    font-size: 0.95rem;
-  }
-
-  .social-main .social-label,
-  .social-primary .social-label {
-    font-size: 0.75rem;
+    font-size: 1.1rem;
   }
 
   .social-secondary {
-    padding: 0.6rem 0.75rem;
+    padding: 0.75rem 1rem;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 0.4rem;
-    background: rgba(255, 255, 255, 0.6);
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 2px 8px rgba(45, 42, 38, 0.05);
   }
 
   .social-secondary .social-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 
   .social-secondary .social-name {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
-  }
-
-  .social-secondary .social-label {
-    display: none;
   }
 
   .social-secondary::before {
