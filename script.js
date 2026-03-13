@@ -3,16 +3,58 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Header scroll effect
-  const header = document.querySelector('.header');
-  
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const handleNavbarScroll = () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('scrolled');
     } else {
-      header?.classList.remove('scrolled');
+      navbar?.classList.remove('scrolled');
     }
+  };
+  window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+  handleNavbarScroll();
 
+  // Mobile menu toggle
+  const toggle = document.getElementById('navbar-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.navbar-mobile-link, .navbar-mobile-cta');
+
+  const openMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Zavřít menu');
+    mobileMenu?.classList.add('is-open');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Otevřít menu');
+    mobileMenu?.classList.remove('is-open');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  const closeBtn = document.getElementById('navbar-close');
+  closeBtn?.addEventListener('click', closeMenu);
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('is-open');
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => closeMenu());
+  });
+
+  // Close menu on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.classList.contains('is-open')) closeMenu();
+  });
+
+  const handleScroll = () => {
     const backToTop = document.getElementById('back-to-top');
     if (window.scrollY > 0) {
       backToTop?.classList.add('visible');

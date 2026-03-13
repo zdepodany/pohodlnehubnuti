@@ -126,24 +126,48 @@
 <body>
   <div class="gradient-bg"></div>
 
-  <header class="header">
-    <nav class="nav">
-      <a href="/" class="logo" aria-current="page">@pohodlnehubnuti</a>
-      <div class="nav-links">
-        <a href="#produkty">Služby</a>
-        <a href="#vsechny-produkty">Produkty</a>
-        <a href="#faq">FAQ</a>
-        <a href="#o-mne">O mně</a>
-        <a href="#promeny">Proměny</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-      <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="nav-cta" aria-label="Sleduj na Instagramu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-logo">Pohodlné hubnutí</a>
+      <nav class="navbar-nav" aria-label="Hlavní navigace">
+        <a href="#produkty" class="navbar-link">Produkty</a>
+        <a href="#o-mne" class="navbar-link">O mně</a>
+        <a href="#promeny" class="navbar-link">Proměny</a>
+        <a href="#faq" class="navbar-link">FAQ</a>
+        <a href="#kontakt-formular" class="navbar-link">Kontakt</a>
+      </nav>
+      <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="btn btn-primary navbar-cta">
+        <svg class="navbar-cta-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
-        <span class="nav-cta-text">Sleduj na IG</span>
+        Sleduj Instagram
       </a>
-    </nav>
+      <button type="button" class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu" id="navbar-toggle">
+        <span class="navbar-toggle-bar"></span>
+        <span class="navbar-toggle-bar"></span>
+        <span class="navbar-toggle-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-mobile" id="mobile-menu" aria-hidden="true">
+      <button type="button" class="navbar-close" aria-label="Zavřít menu" id="navbar-close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <nav class="navbar-mobile-nav">
+        <a href="#produkty" class="navbar-mobile-link">Produkty</a>
+        <a href="#o-mne" class="navbar-mobile-link">O mně</a>
+        <a href="#promeny" class="navbar-mobile-link">Proměny</a>
+        <a href="#faq" class="navbar-mobile-link">FAQ</a>
+        <a href="#kontakt-formular" class="navbar-mobile-link">Kontakt</a>
+      </nav>
+      <a href="https://www.instagram.com/pohodlnehubnuti/" target="_blank" rel="noopener" class="btn btn-primary navbar-mobile-cta">
+        <svg class="navbar-cta-icon" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Sleduj Instagram
+      </a>
+    </div>
   </header>
 
   <main>
@@ -180,16 +204,40 @@
       <div class="container">
         <h2 class="section-title">Co ti můžu nabídnout</h2>
         <div class="products-grid">
+          <article class="product-card product-basic" id="zakladni-jidelnicek">
+            <span class="product-badge product-badge-basic">Základní varianta</span>
+            <h3>Základní jídelníček na míru</h3>
+            <p class="product-entry-desc">Individuální jídelníček pro každodenní pohodu – jednoduchý, přehledný a šitý na míru vašemu životnímu stylu.</p>
+            <ul class="product-features">
+              <li>25+ variant od každého chodu</li>
+              <li>Z běžně dostupných surovin</li>
+              <li>Nestrávíte déle než 30 min v kuchyni denně</li>
+              <li>Přímo vám na míru</li>
+              <li>Tisíce spokojených klientů</li>
+              <li>Jíte jen to, co vám chutná</li>
+              <li>Cca 45 stránek</li>
+            </ul>
+            <p class="product-price">1 699 Kč</p>
+            <a href="#kontakt-formular" class="btn btn-secondary btn-block">Objednat</a>
+          </article>
           <article class="product-card product-entry" id="jidelnicek">
             <span class="product-badge product-badge-entry">Ideální začátek</span>
-            <h3>Jídelníčky na míru</h3>
-            <p class="product-entry-desc">Personalizovaný jídelníček šitý na míru tvému životnímu stylu, preferencím a cílům. Žádné univerzální řešení – jen to, co ti bude skutečně vyhovovat.</p>
+            <h3>Jídelníček XXXL</h3>
+            <p class="product-entry-desc">Nejkompletnější jídelníček na míru – stovky variant, moje průběžná podpora a kontrola výsledků. Vše, co potřebujete pro trvalou změnu.</p>
             <ul class="product-features">
-              <li>Individuální analýza</li>
-              <li>Jídelníček na míru</li>
-              <li>Reálné recepty</li>
-              <li>Flexibilní přístup</li>
+              <li>Přes 350+ variant od každého chodu s přesnými postupy a recepty</li>
+              <li>Z běžně dostupných surovin</li>
+              <li>Nestrávíte déle než 30 min v kuchyni denně</li>
+              <li>Moje podpora kdykoliv budete potřebovat (i po skončení spolupráce)</li>
+              <li>Přímo vám na míru</li>
+              <li>Pravidelná kontrola výsledků každý týden (nejste na to sami)</li>
+              <li>Tisíce spokojených klientů</li>
+              <li>Jídelníček vydrží minimálně rok – pravděpodobně ale nebudete potřebovat žádný jiný jídelníček</li>
+              <li>Jíte jen to, co vám chutná</li>
+              <li>Úprava jídelníčku první měsíc zdarma</li>
+              <li>Přes 160 stran</li>
             </ul>
+            <p class="product-price">2 499 Kč</p>
             <a href="#vsechny-produkty" class="btn btn-primary btn-block">Chci jídelníček</a>
           </article>
           <article class="product-card product-premium" id="coaching">
