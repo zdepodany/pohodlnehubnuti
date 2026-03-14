@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal animation
   const revealElements = document.querySelectorAll(
-    '.product-card, .catalog-item, .about-content, .about-image, .social-intro, .social-card, .faq-item, .transformations-slider, .contact-form-fields'
+    '.product-card, .catalog-item, .promeny-carousel, .promeny-content, .refs-slider, .about-content, .about-image, .social-intro, .social-card, .faq-item, .contact-form-fields'
   );
 
   const observerOptions = {
@@ -81,46 +81,96 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Promeny carousel
+  const promenyCarousel = document.querySelector('[data-carousel="promeny"]');
+  if (promenyCarousel) {
+    const track = promenyCarousel.querySelector('.promeny-track');
+    const slides = Array.from(promenyCarousel.querySelectorAll('.promeny-slide'));
+    const dots = Array.from(promenyCarousel.querySelectorAll('.promeny-dot'));
+    const prevButton = promenyCarousel.querySelector('[data-carousel-prev]');
+    const nextButton = promenyCarousel.querySelector('[data-carousel-next]');
+    let activeIndex = 0;
+
+    const setActiveSlide = (index) => {
+      activeIndex = (index + slides.length) % slides.length;
+      if (track) {
+        track.style.transform = `translateX(-${activeIndex * 100}%)`;
+      }
+
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', String(isActive));
+      });
+    };
+
+    prevButton?.addEventListener('click', () => setActiveSlide(activeIndex - 1));
+    nextButton?.addEventListener('click', () => setActiveSlide(activeIndex + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const targetIndex = Number(dot.dataset.carouselDot);
+        if (!Number.isNaN(targetIndex)) {
+          setActiveSlide(targetIndex);
+        }
+      });
+    });
+
+    setActiveSlide(0);
+  }
+
+  // References slider (peek layout – offset in px)
+  const refsCarousel = document.querySelector('[data-carousel="refs"]');
+  if (refsCarousel) {
+    const refsTrack = refsCarousel.querySelector('.refs-track');
+    const refsSlides = Array.from(refsCarousel.querySelectorAll('.refs-slide'));
+    const refsDots = Array.from(refsCarousel.querySelectorAll('.refs-dot'));
+    const refsPrev = refsCarousel.querySelector('[data-carousel-prev]');
+    const refsNext = refsCarousel.querySelector('[data-carousel-next]');
+    let refsIndex = 0;
+
+    const getRefsOffset = () => {
+      const slide = refsTrack?.querySelector('.refs-slide');
+      if (!slide) return 0;
+      const gap = parseInt(getComputedStyle(refsTrack).gap) || 16;
+      return slide.offsetWidth + gap;
+    };
+
+    const setRefsSlide = (index) => {
+      refsIndex = Math.max(0, Math.min(index, refsSlides.length - 1));
+      const offset = refsIndex * getRefsOffset();
+      if (refsTrack) refsTrack.style.transform = `translateX(-${offset}px)`;
+
+      refsDots.forEach((dot, i) => {
+        const active = i === refsIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    };
+
+    refsPrev?.addEventListener('click', () => setRefsSlide(refsIndex - 1));
+    refsNext?.addEventListener('click', () => setRefsSlide(refsIndex + 1));
+    refsDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const i = Number(dot.dataset.carouselDot);
+        if (!Number.isNaN(i)) setRefsSlide(i);
+      });
+    });
+
+    setRefsSlide(0);
+    window.addEventListener('resize', () => setRefsSlide(refsIndex));
+  }
+
   // Contact form - prevent submit (form not connected)
   document.querySelector('.contact-form-fields')?.addEventListener('submit', (e) => {
     e.preventDefault();
   });
-
-  // Transformations slider
-  const track = document.querySelector('.transformations-track');
-  const cards = document.querySelectorAll('.transformations-track .transformation-card');
-  const prevBtn = document.querySelector('.slider-prev');
-  const nextBtn = document.querySelector('.slider-next');
-  const dots = document.querySelectorAll('.slider-dot');
-  const total = cards.length;
-
-  let currentIndex = 0;
-
-  const goTo = (index) => {
-    currentIndex = Math.max(0, Math.min(index, total - 1));
-    if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-      dot.setAttribute('aria-selected', i === currentIndex);
-    });
-  };
-
-  prevBtn?.addEventListener('click', () => goTo(currentIndex - 1));
-  nextBtn?.addEventListener('click', () => goTo(currentIndex + 1));
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
-  });
-
-  // Touch swipe
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const wrap = document.querySelector('.transformations-track-wrap');
-  wrap?.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-  wrap?.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) goTo(diff > 0 ? currentIndex + 1 : currentIndex - 1);
-  }, { passive: true });
 
   // Mobile menu toggle
   const navbarToggle = document.querySelector('.navbar-toggle');
