@@ -349,15 +349,6 @@ section[id] {
   box-shadow: var(--shadow-float);
 }
 
-.hero-image-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 204, 220, 0.2), rgba(255, 215, 166, 0.2));
-  z-index: 1;
-  pointer-events: none;
-}
-
 .hero-img {
   width: 100%;
   height: auto;
