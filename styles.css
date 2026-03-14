@@ -531,15 +531,28 @@ section[id] {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
 }
 
 /* ===== Vstupní produkt (Jídelníček) – lehký, přístupný ===== */
 .product-entry {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 231, 0.6) 100%);
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.35rem;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
@@ -579,7 +592,7 @@ section[id] {
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 240, 0.5) 100%);
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.35rem;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
@@ -587,7 +600,8 @@ section[id] {
   box-shadow: 0 2px 12px rgba(45, 42, 38, 0.03);
 }
 
-.product-basic .product-badge-basic {
+.product-basic .product-badge-basic,
+.product-premium .product-badge-premium {
   align-self: flex-start;
 }
 
@@ -599,6 +613,13 @@ section[id] {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-dark);
+  margin-bottom: 0.25rem;
+}
+
+.product-price-note {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-dark-muted);
   margin-bottom: 1rem;
 }
 
@@ -611,8 +632,10 @@ section[id] {
 
 /* ===== Prémiový produkt (Coaching) – výrazný, luxusní ===== */
 .product-premium {
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(145deg, rgba(255, 248, 231, 0.9) 0%, rgba(255, 204, 220, 0.25) 50%, rgba(255, 215, 166, 0.2) 100%);
-  padding: 1.75rem 2rem;
+  padding: 1.25rem 1.35rem;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
@@ -620,6 +643,10 @@ section[id] {
   box-shadow: 0 8px 40px rgba(45, 42, 38, 0.12),
               0 4px 24px rgba(255, 204, 220, 0.2),
               inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.product-premium .product-price {
+  margin-top: auto;
 }
 
 .product-badge-premium {
@@ -676,6 +703,64 @@ section[id] {
   margin-bottom: 1rem;
   line-height: 1.55;
   font-size: 0.95rem;
+}
+
+@media (min-width: 960px) {
+  .product-entry,
+  .product-premium,
+  .product-basic {
+    padding: 1rem 1.15rem;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-card p:not(.product-entry-desc),
+  .product-entry-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-features li {
+    font-size: 0.8rem;
+    padding: 0.2rem 0;
+    padding-left: 1.15rem;
+  }
+
+  .product-features {
+    margin-bottom: 0.75rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .product-price-note {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-badge,
+  .product-badge-basic,
+  .product-badge-entry,
+  .product-badge-premium {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-premium-label {
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-card .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
 }
 
 .product-badge {
@@ -738,7 +823,7 @@ section[id] {
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .products-grid {
     grid-template-columns: 1fr;
   }
