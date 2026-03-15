@@ -75,7 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       catalogItems.forEach((item) => {
         const category = item.dataset.category;
-        const matches = filter === 'vse' || category === filter;
+        const matches =
+          filter === 'vse' ||
+          category === filter ||
+          (filter === 'jidlo' && (category === 'jidelnicky' || category === 'recepty'));
         item.classList.toggle('filter-hidden', !matches);
       });
     });
@@ -130,10 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (refsCarousel) {
     const refsTrack = refsCarousel.querySelector('.refs-track');
     const refsSlides = Array.from(refsCarousel.querySelectorAll('.refs-slide'));
-    const refsDots = Array.from(refsCarousel.querySelectorAll('.refs-dot'));
+    const refsDotsContainer = refsCarousel.querySelector('.refs-dots');
     const refsPrev = refsCarousel.querySelector('[data-carousel-prev]');
     const refsNext = refsCarousel.querySelector('[data-carousel-next]');
     let refsIndex = 0;
+
+    // Generate dots from slide count
+    if (refsDotsContainer) {
+      refsSlides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'refs-dot' + (i === 0 ? ' is-active' : '');
+        dot.dataset.carouselDot = String(i);
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dot.setAttribute('aria-label', `Recenze ${i + 1}`);
+        refsDotsContainer.appendChild(dot);
+      });
+    }
+    const refsDots = Array.from(refsCarousel.querySelectorAll('.refs-dot'));
 
     const getRefsOffset = () => {
       const slide = refsTrack?.querySelector('.refs-slide');
@@ -152,6 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.classList.toggle('is-active', active);
         dot.setAttribute('aria-selected', String(active));
       });
+
+      refsPrev?.classList.toggle('is-hidden', refsIndex === 0);
+      refsNext?.classList.toggle('is-hidden', refsIndex === refsSlides.length - 1);
     };
 
     refsPrev?.addEventListener('click', () => setRefsSlide(refsIndex - 1));
