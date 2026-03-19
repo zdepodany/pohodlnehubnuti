@@ -1631,6 +1631,15 @@ section[id] {
   margin-bottom: 1.25rem;
 }
 
+.form-row .form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-required {
+  color: var(--color-dark-muted);
+  font-weight: 700;
+}
+
 .form-group label {
   display: block;
   font-weight: 600;
@@ -1692,15 +1701,25 @@ section[id] {
   min-width: 200px;
 }
 
-.btn-submit-disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.contact-form-email-alt {
+  max-width: 560px;
+  margin-top: 1.75rem;
+  font-size: 1rem;
+  color: var(--color-dark-muted);
+  line-height: 1.5;
 }
 
-.form-disabled-note {
-  margin-top: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--color-dark-muted);
+.contact-form-email-alt a {
+  color: var(--color-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-dark-muted);
+  text-underline-offset: 3px;
+}
+
+.contact-form-email-alt a:hover {
+  color: #1a1816;
+  text-decoration-color: var(--color-dark);
 }
 
 @media (max-width: 600px) {

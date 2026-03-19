@@ -188,11 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => setRefsSlide(refsIndex));
   }
 
-  // Contact form - prevent submit (form not connected)
-  document.querySelector('.contact-form-fields')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-  });
-
   // Mobile menu toggle
   const navbarToggle = document.querySelector('.navbar-toggle');
   const navbarNav = document.getElementById('navbar-menu');
