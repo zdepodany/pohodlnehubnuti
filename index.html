@@ -4,8 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Analytics – načte se až po souhlasu (viz analytics.js + cookie lišta) -->
-  <script src="analytics.js"></script>
+  <!-- Google Consent Mode: výchozí zamítnuto; po „Souhlasím“ nebo uloženém souhlasu → granted (viz script.js) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      if (localStorage.getItem('ph_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERQJ6RY77D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ERQJ6RY77D');
+  </script>
 
   <title>Pohodlné hubnutí | Mgr. Martin Teleki – Jídelníčky na míru &amp; coaching</title>
   <meta name="description" content="Zhubni bez extrémních diet a počítání každé kalorie. Mgr. Martin Teleki – individuální jídelníčky na míru, coaching a recepty. Přes 1 000 spokojených klientů.">

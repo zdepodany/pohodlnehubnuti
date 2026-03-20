@@ -270,8 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch {
         /* ignore */
       }
-      if (typeof window.phLoadAnalytics === 'function') {
-        window.phLoadAnalytics();
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', { analytics_storage: 'granted' });
       }
       hideCookieBanner();
     });
