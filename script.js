@@ -235,4 +235,54 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Cookie consent lišta + rezerva místa v patě stránky
+  const COOKIE_KEY = 'ph_cookie_consent';
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAccept = document.getElementById('cookie-accept');
+  const cookieReject = document.getElementById('cookie-reject');
+
+  const hideCookieBanner = () => {
+    cookieBanner?.classList.remove('cookie-banner--visible');
+    cookieBanner?.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cookie-banner-open');
+  };
+
+  const showCookieBanner = () => {
+    cookieBanner?.classList.add('cookie-banner--visible');
+    cookieBanner?.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cookie-banner-open');
+  };
+
+  if (cookieBanner) {
+    try {
+      const consent = localStorage.getItem(COOKIE_KEY);
+      if (consent === null || consent === '') {
+        showCookieBanner();
+      }
+    } catch {
+      showCookieBanner();
+    }
+
+    cookieAccept?.addEventListener('click', () => {
+      try {
+        localStorage.setItem(COOKIE_KEY, 'accepted');
+      } catch {
+        /* ignore */
+      }
+      if (typeof window.phLoadAnalytics === 'function') {
+        window.phLoadAnalytics();
+      }
+      hideCookieBanner();
+    });
+
+    cookieReject?.addEventListener('click', () => {
+      try {
+        localStorage.setItem(COOKIE_KEY, 'rejected');
+      } catch {
+        /* ignore */
+      }
+      hideCookieBanner();
+    });
+  }
 });

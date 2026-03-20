@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics – načte se až po souhlasu (viz analytics.js + cookie lišta) -->
+  <script src="analytics.js"></script>
+
   <title>Pohodlné hubnutí | Mgr. Martin Teleki – Jídelníčky na míru &amp; coaching</title>
   <meta name="description" content="Zhubni bez extrémních diet a počítání každé kalorie. Mgr. Martin Teleki – individuální jídelníčky na míru, coaching a recepty. Přes 1 000 spokojených klientů.">
   <meta name="keywords" content="pohodlné hubnutí, jídelníček na míru, Martin Teleki, individuální výživa, zhubnout bez diety, výživový poradce, coaching hubnutí">
@@ -710,6 +714,13 @@
             <label for="contact-message">Zpráva</label>
             <textarea id="contact-message" name="message" rows="5" placeholder="Co vás zajímá?"></textarea>
           </div>
+          <div class="form-group form-group-checkbox">
+            <label class="form-checkbox-label" for="contact-consent">
+              <input type="checkbox" id="contact-consent" name="souhlas_zpracovani_osobnich_udaju" value="ano" required aria-required="true">
+              <span class="form-checkbox-text">Souhlasím se zpracováním osobních údajů <span class="form-required" aria-hidden="true">*</span></span>
+            </label>
+            <p class="form-checkbox-hint">Podrobnosti najdete v <a href="zasady-ochrany-osobnich-udaju.html">Zásadách ochrany osobních údajů</a>.</p>
+          </div>
           <div class="form-submit">
             <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
           </div>
@@ -733,11 +744,12 @@
           <a href="#o-mne">O mně</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt-formular">Kontakt</a>
+          <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <p class="footer-copyright">© 2026 Pohodlné hubnutí | Mgr. Martin Teleki</p>
-        <p class="footer-info">IČO: 23790075</p>
+        <p class="footer-info">IČO: <a href="https://ares.gov.cz/ekonomicke-subjekty/res/23790075" target="_blank" rel="noopener noreferrer">23790075</a></p>
         <p class="footer-credit">
           Web pohodlně od <a href="https://zdenekpodany.cz" target="_blank" rel="noopener">Zdeněk Podaný - Webovky jednoduše</a>
         </p>
@@ -750,6 +762,23 @@
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </a>
+
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-banner-title" aria-hidden="true">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <h2 id="cookie-banner-title" class="cookie-banner-title">Soubory cookie a měření</h2>
+        <p class="cookie-banner-desc">
+          Tyto stránky používají cookies nezbytné pro fungování webu a po vašem souhlasu také Google Analytics ke statistikám návštěvnosti.
+          Více informací najdete v dokumentu
+          <a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a>.
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-secondary cookie-banner-btn" id="cookie-reject">Odmítnout</button>
+        <button type="button" class="btn btn-primary cookie-banner-btn" id="cookie-accept">Souhlasím</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
