@@ -125,6 +125,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Swipe podpora pro dotykové obrazovky
+    let promenyTouchStartX = 0;
+    let promenyTouchStartY = 0;
+    let promenyIsDragging = false;
+
+    promenyCarousel.addEventListener('touchstart', (e) => {
+      promenyTouchStartX = e.touches[0].clientX;
+      promenyTouchStartY = e.touches[0].clientY;
+      promenyIsDragging = true;
+    }, { passive: true });
+
+    promenyCarousel.addEventListener('touchmove', (e) => {
+      if (!promenyIsDragging) return;
+      const dx = e.touches[0].clientX - promenyTouchStartX;
+      const dy = e.touches[0].clientY - promenyTouchStartY;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    promenyCarousel.addEventListener('touchend', (e) => {
+      if (!promenyIsDragging) return;
+      promenyIsDragging = false;
+      const dx = e.changedTouches[0].clientX - promenyTouchStartX;
+      const dy = e.changedTouches[0].clientY - promenyTouchStartY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0) {
+        setActiveSlide(activeIndex + 1);
+      } else {
+        setActiveSlide(activeIndex - 1);
+      }
+    }, { passive: true });
+
     setActiveSlide(0);
   }
 
@@ -183,6 +216,39 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!Number.isNaN(i)) setRefsSlide(i);
       });
     });
+
+    // Swipe podpora pro dotykové obrazovky
+    let refsTouchStartX = 0;
+    let refsTouchStartY = 0;
+    let refsIsDragging = false;
+
+    refsCarousel.addEventListener('touchstart', (e) => {
+      refsTouchStartX = e.touches[0].clientX;
+      refsTouchStartY = e.touches[0].clientY;
+      refsIsDragging = true;
+    }, { passive: true });
+
+    refsCarousel.addEventListener('touchmove', (e) => {
+      if (!refsIsDragging) return;
+      const dx = e.touches[0].clientX - refsTouchStartX;
+      const dy = e.touches[0].clientY - refsTouchStartY;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    refsCarousel.addEventListener('touchend', (e) => {
+      if (!refsIsDragging) return;
+      refsIsDragging = false;
+      const dx = e.changedTouches[0].clientX - refsTouchStartX;
+      const dy = e.changedTouches[0].clientY - refsTouchStartY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0) {
+        setRefsSlide(refsIndex + 1);
+      } else {
+        setRefsSlide(refsIndex - 1);
+      }
+    }, { passive: true });
 
     setRefsSlide(0);
     window.addEventListener('resize', () => setRefsSlide(refsIndex));
