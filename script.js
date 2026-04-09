@@ -351,4 +351,56 @@ document.addEventListener('DOMContentLoaded', () => {
       hideCookieBanner();
     });
   }
+
+  // GA4 Event Tracking
+  const trackEvent = (eventName, eventParams = {}) => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, eventParams);
+    }
+  };
+
+  // 1. Hero CTAs
+  const heroCtaJidelnicek = document.querySelector('.hero-ctas .btn-primary');
+  if (heroCtaJidelnicek) {
+    heroCtaJidelnicek.addEventListener('click', () => {
+      trackEvent('click_hero_cta', { button_name: 'Chci jídelníček' });
+    });
+  }
+
+  const heroCtaSpoluprace = document.querySelector('.hero-ctas .btn-secondary');
+  if (heroCtaSpoluprace) {
+    heroCtaSpoluprace.addEventListener('click', () => {
+      trackEvent('click_hero_cta', { button_name: 'Chci individuální spolupráci' });
+    });
+  }
+
+  // 2. Service CTAs
+  const serviceZakladniCta = document.querySelector('#zakladni-jidelnicek .btn');
+  if (serviceZakladniCta) {
+    serviceZakladniCta.addEventListener('click', () => {
+      trackEvent('click_service_cta', { service_name: 'Základní jídelníček na míru' });
+    });
+  }
+
+  const serviceXxxlCta = document.querySelector('#jidelnicek .btn');
+  if (serviceXxxlCta) {
+    serviceXxxlCta.addEventListener('click', () => {
+      trackEvent('click_service_cta', { service_name: 'Jídelníček XXXL' });
+    });
+  }
+
+  const serviceCoachingCta = document.querySelector('#coaching .btn');
+  if (serviceCoachingCta) {
+    serviceCoachingCta.addEventListener('click', () => {
+      trackEvent('click_service_cta', { service_name: 'Individuální coaching' });
+    });
+  }
+
+  // 3. Contact Form Submission
+  const contactFormFields = document.querySelector('.contact-form-fields');
+  if (contactFormFields) {
+    contactFormFields.addEventListener('submit', () => {
+      trackEvent('submit_contact_form');
+    });
+  }
 });
