@@ -869,12 +869,9 @@
       <div class="container">
         <h2 class="section-title">Napište mi</h2>
         <p class="contact-form-intro">Máte dotaz nebo chcete začít? Napište mi – ozvu se co nejdřív.</p>
-        <form class="contact-form-fields" action="https://formsubmit.co/1c74ca41d307f8140743822494c5f247" method="POST">
-          <!-- FormSubmit.co: předmět, návrat na web, vypnutí captcha (pro test; později lze zapnout) -->
-          <input type="hidden" name="_subject" value="Nová zpráva z webu Pohodlné hubnutí">
-          <input type="hidden" name="_next" value="https://www.pohodlnehubnuti.cz/">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+        <form class="contact-form-fields" id="contact-form" action="https://server.ecms.cz/api/email-sender/6a71f57d576ee62253b94dbb" method="POST">
+          <input type="hidden" name="origin" value="https://www.pohodlnehubnuti.cz">
+          <input type="hidden" name="subject" value="Nová zpráva z webu Pohodlné hubnutí">
           <div class="form-row">
             <div class="form-group">
               <label for="contact-name">Jméno <span class="form-required" aria-hidden="true">*</span></label>
@@ -882,7 +879,7 @@
             </div>
             <div class="form-group">
               <label for="contact-email">Email <span class="form-required" aria-hidden="true">*</span></label>
-              <input type="email" id="contact-email" name="email" placeholder="vas@email.cz" autocomplete="email" required aria-required="true">
+              <input type="email" id="contact-email" name="sender" placeholder="vas@email.cz" autocomplete="email" required aria-required="true">
             </div>
           </div>
           <div class="form-row">
@@ -929,6 +926,7 @@
           <div class="form-submit">
             <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
           </div>
+          <p class="form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
         </form>
         <p class="contact-form-email-alt">Nebo mi napište přímo na <a href="mailto:pohodlnehubnuti@seznam.cz">pohodlnehubnuti@seznam.cz</a></p>
       </div>

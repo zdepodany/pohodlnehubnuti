@@ -397,10 +397,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Contact Form Submission
-  const contactFormFields = document.querySelector('.contact-form-fields');
-  if (contactFormFields) {
-    contactFormFields.addEventListener('submit', () => {
-      trackEvent('submit_contact_form');
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const statusEl = document.getElementById('contact-form-status');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (statusEl) {
+        statusEl.hidden = true;
+        statusEl.textContent = '';
+        statusEl.classList.remove('form-status-success', 'form-status-error');
+      }
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Odesílám…';
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
+        trackEvent('submit_contact_form');
+        contactForm.reset();
+        if (statusEl) {
+          statusEl.textContent = 'Díky za zprávu! Ozvu se co nejdřív.';
+          statusEl.classList.add('form-status-success');
+          statusEl.hidden = false;
+        }
+      } catch (error) {
+        if (statusEl) {
+          statusEl.textContent = 'Zprávu se nepodařilo odeslat. Zkuste to prosím znovu, nebo napište přímo na pohodlnehubnuti@seznam.cz.';
+          statusEl.classList.add('form-status-error');
+          statusEl.hidden = false;
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Odeslat zprávu';
+        }
+      }
     });
   }
 });
