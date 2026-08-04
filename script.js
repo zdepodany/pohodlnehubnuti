@@ -401,9 +401,32 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const statusEl = document.getElementById('contact-form-status');
+    const bodyField = document.getElementById('contact-body');
+
+    const getFieldValue = (name) => contactForm.elements[name]?.value.trim() || '';
+    const getSelectedText = (name) => {
+      const field = contactForm.elements[name];
+      return field && field.selectedIndex > -1 ? field.options[field.selectedIndex].text : '';
+    };
+
+    const buildEmailBody = () => [
+      `Jméno: ${getFieldValue('name')}`,
+      `Email: ${getFieldValue('sender')}`,
+      `Telefon: ${getFieldValue('phone') || '-'}`,
+      `Cíl: ${getSelectedText('goal')}`,
+      `Služba: ${getSelectedText('service')}`,
+      `Zdravotní omezení: ${getFieldValue('health') || '-'}`,
+      '',
+      'Zpráva:',
+      getFieldValue('message') || '-',
+    ].join('\n');
 
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
+
+      if (bodyField) {
+        bodyField.value = buildEmailBody();
+      }
 
       if (statusEl) {
         statusEl.hidden = true;
