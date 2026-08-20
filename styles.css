@@ -173,6 +173,12 @@ body {
   color: var(--color-dark);
 }
 
+.navbar-cta {
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+}
+
 @media (min-width: 900px) {
   .navbar-inner {
     gap: 2rem;
@@ -186,6 +192,7 @@ body {
   .navbar-nav {
     position: static;
     flex-direction: row;
+    align-items: center;
     background: transparent;
     padding: 0;
     box-shadow: none;
@@ -204,6 +211,12 @@ body {
     border-bottom: none;
     text-align: left;
     width: auto;
+  }
+
+  .navbar-cta {
+    margin-top: 0;
+    padding: 0.65rem 1.5rem;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
   }
 }
 
