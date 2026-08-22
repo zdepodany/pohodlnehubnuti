@@ -2177,6 +2177,17 @@ body.cookie-banner-open .back-to-top.visible {
   margin-top: 1.25rem;
 }
 
+.legal-updated {
+  font-size: 0.85rem;
+  color: var(--color-dark-muted);
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-content h1 + .legal-updated + h2 {
+  margin-top: 1.25rem;
+}
+
 .legal-content > p {
   font-size: 0.95rem;
   color: var(--color-dark-muted);
